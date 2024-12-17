@@ -155,6 +155,28 @@ class LandingPageResource extends Resource
                                                         ->default('text-black'),
                                                 ]),
 
+                                            Block::make('about')
+                                                ->label('Seção Sobre')
+                                                ->icon('heroicon-o-information-circle')
+                                                ->schema([
+                                                    FileUpload::make('about_image')
+                                                        ->label('Imagem da Seção')
+                                                        ->directory('landing-page/about')
+                                                        ->image()
+                                                        ->placeholder('Envie uma imagem'),
+
+                                                    TextInput::make('about_title')
+                                                        ->label('Título da Seção')
+                                                        ->placeholder('Ex: Sobre Nós')
+                                                        ->required(),
+
+                                                    Textarea::make('about_description')
+                                                        ->label('Descrição')
+                                                        ->placeholder('Escreva uma breve descrição sobre a seção.')
+                                                        ->required()
+                                                        ->rows(4),
+                                                ]),
+
                                             Block::make('blog')
                                                 ->label('Seção de posts do blog')
                                                 ->icon('heroicon-o-bold')
