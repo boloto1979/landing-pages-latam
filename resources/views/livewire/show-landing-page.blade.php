@@ -1,5 +1,5 @@
 <div>
-    <h1>{{ $page->title }}</h1>
+    @includeIf('livewire.components.navbar', ['page' => $page, 'navItems' => $navItems])
 
     @if(is_array($page->content))
         @foreach($page->content as $block)
@@ -9,7 +9,9 @@
             @endphp
 
             @if($blockType)
-                @includeIf("livewire.components.blocks.$blockType", ['blockData' => $blockData])
+                <section id="{{ $blockType }}" class="bg-white">
+                    @includeIf("livewire.components.blocks.$blockType", ['blockData' => $blockData])
+                </section>
             @endif
         @endforeach
     @endif

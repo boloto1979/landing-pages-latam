@@ -18,8 +18,30 @@ class ShowLandingPage extends Component
 
     public function render()
     {
+        $blockLabels = [
+            'banner'    => 'Home',
+            'about'     => 'Sobre',
+            'blog'      => 'Blog',
+            'challenges'=> 'Desafios',
+            'evaluators'=> 'Avaliadores',
+        ];
+
+        $navItems = [];
+        if (is_array($this->page->content)) {
+            foreach ($this->page->content as $block) {
+                $blockType = $block['type'] ?? null;
+                if ($blockType && isset($blockLabels[$blockType])) {
+                    $navItems[] = [
+                        'label'  => $blockLabels[$blockType],
+                        'anchor' => $blockType,
+                    ];
+                }
+            }
+        }
+
         return view('livewire.show-landing-page', [
-            'page' => $this->page,
+            'page'     => $this->page,
+            'navItems' => $navItems,
         ]);
     }
 }
