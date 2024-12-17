@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  pages-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pages-app
+    entrypoint: sh /usr/local/bin/entrypoint.sh
+    depends_on:
+      pages-db:
+        condition: service_healthy
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    networks:
+      - pages-network
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: pages-db
+      DB_PORT: 3306
+      DB_DATABASE: pages
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+  pages-db:
+    image: mysql:5.7
+    container_name: pages-db
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - db_volume:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: pages
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - pages-network
+
+networks:
+  pages-network:
+    driver: bridge
+
+volumes:
+  db_volume: {}
