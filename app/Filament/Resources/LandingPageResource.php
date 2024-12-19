@@ -137,6 +137,30 @@ class LandingPageResource extends Resource
                                                         ->helperText('Adicione até 4 botões com nomes, links e cores personalizados.'),
                                                 ]),
 
+                                                Block::make('advantages')
+                                                ->label('Seção de vantagens')
+                                                ->icon('heroicon-o-clipboard-document-check')
+                                                ->schema([
+                                                    TextInput::make('advantage-section-title')
+                                                        ->label('Título da Seção')
+                                                        ->required()
+                                                        ->helperText('Defina o título exibido no cabeçalho da seção do vantagens.'),
+                                                    Repeater::make('advantage')
+                                                        ->label('Vantagem')
+                                                        ->maxItems(6)
+                                                        ->schema([
+                                                            TextInput::make('advantage_name')
+                                                                ->label('Titulo da vantagens')
+                                                                ->placeholder('Ex: Saiba Mais')
+                                                                ->required(),
+                                                            TextInput::make('advantage_description')
+                                                                ->label('Descrição')
+                                                                ->placeholder('Descrição da vantagem')
+                                                                ->required(),
+                                                        ])
+                                                        ->helperText('Adicione no maximo 6 vantagens.'),
+                                                ]),
+
                                             Block::make('text-block')
                                                 ->label('Seção para bloco de Texto')
                                                 ->icon('heroicon-o-bars-3-bottom-left')

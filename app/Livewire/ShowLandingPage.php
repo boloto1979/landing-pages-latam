@@ -21,6 +21,7 @@ class ShowLandingPage extends Component
         $blockLabels = [
             'banner'    => 'Home',
             'about'     => 'Sobre',
+            'advantages'=> 'Vantagens',
             'blog'      => 'Blog',
             'challenges'=> 'Desafios',
             'evaluators'=> 'Avaliadores',

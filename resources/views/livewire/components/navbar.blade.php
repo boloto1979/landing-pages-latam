@@ -2,17 +2,23 @@
     <div class="flex items-center justify-center h-16 px-2">
         <a href="#home" class="flex items-center">
             @if(!empty($page->logo))
-                <img src="{{ Storage::url($page->logo) }}" alt="Logo" class="w-auto h-20" />
+                <img src="{{ Storage::url($page->logo) }}" alt="Logo" class="w-auto h-9" />
             @else
                 <span class="text-2xl font-bold text-white">{{ $page->title }}</span>
             @endif
         </a>
         <div class="items-center hidden ml-4 md:flex">
             @foreach($navItems as $item)
-                <a href="#{{ $item['anchor'] }}" class="ml-4 text-base text-white hover:underline">
+                <a href="#{{ $item['anchor'] }}" class="ml-3 text-base text-white hover:underline">
                     {{ $item['label'] }}
                 </a>
             @endforeach
+        </div>
+        <div class="hidden ml-72 md:flex">
+            <a href="#login"
+               class="px-6 py-1 bg-white border-green-500 rounded shadow border-1 hover:bg-green-50" style="color: {{ $page->secondary_color ?? '#0ea5e9' }};">
+                Login
+            </a>
         </div>
         <div class="relative ml-auto md:hidden" x-data="{ open: false }">
             <button class="text-white" @click="open = !open">
