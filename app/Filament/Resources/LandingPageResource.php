@@ -161,6 +161,27 @@ class LandingPageResource extends Resource
                                                         ->helperText('Adicione no maximo 6 vantagens.'),
                                                 ]),
 
+                                                Block::make('events')
+                                                ->label('Seção de Eventos')
+                                                ->icon('heroicon-o-arrow-trending-up')
+                                                ->schema([
+                                                    TextInput::make('events-section-title')
+                                                        ->label('Título da Seção')
+                                                        ->required()
+                                                        ->helperText('Defina o título exibido no cabeçalho da seção do eventos.'),
+                                                    Select::make('selected_events')
+                                                        ->label('Selecione seus eventos')
+                                                        ->options([
+                                                            'challenge1' => 'Web Summit',
+                                                            'challenge2' => 'Barcelonas Leading Tech',
+                                                            'challenge3' => 'Rio2C 2025',
+                                                        ])
+                                                        ->multiple()
+                                                        ->searchable()
+                                                        ->placeholder('Escolha um ou mais eventos...')
+                                                        ->helperText('Você pode selecionar múltiplos eventos.'),
+                                                ]),
+
                                             Block::make('text-block')
                                                 ->label('Seção para bloco de Texto')
                                                 ->icon('heroicon-o-bars-3-bottom-left')

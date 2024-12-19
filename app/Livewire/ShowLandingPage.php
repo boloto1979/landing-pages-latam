@@ -22,6 +22,7 @@ class ShowLandingPage extends Component
             'banner'    => 'Home',
             'about'     => 'Sobre',
             'advantages'=> 'Vantagens',
+            'events'    => 'Eventos',
             'blog'      => 'Blog',
             'challenges'=> 'Desafios',
             'evaluators'=> 'Avaliadores',
