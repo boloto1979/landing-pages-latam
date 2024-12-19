@@ -5,11 +5,11 @@
 @endphp
 
 <div class="relative w-full bg-center bg-cover" style="background-image: url('{{ Storage::url($backgroundImage) }}'); min-height: 85vh;">
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+    <div class="absolute inset-0 bg-opacity-10"></div>
 
     <div class="relative flex flex-col items-center justify-center min-h-[80vh] p-8">
         @if(!empty($buttons))
-            <div class="flex flex-wrap justify-center space-x-4 mt-96">
+            <div class="flex flex-wrap justify-center gap-4 mt-96">
                 @foreach($buttons as $button)
                     @php
                         $btnName = $button['name'] ?? 'Botão';
@@ -17,8 +17,8 @@
                         $btnColor = $button['color'] ?? '#0ea5e9';
                     @endphp
                     <a href="{{ $btnLink }}"
-                       class="px-16 py-2 text-white transition rounded-md hover:opacity-100"
-                       style="background-color: {{ $btnColor }};">
+                       class="px-6 py-2 text-sm font-semibold text-center text-white rounded-md hover:opacity-90"
+                       style="background-color: {{ $btnColor }}; min-width: 120px;">
                         {{ $btnName }}
                     </a>
                 @endforeach
@@ -26,4 +26,3 @@
         @endif
     </div>
 </div>
-

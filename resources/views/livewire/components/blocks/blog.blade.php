@@ -1,3 +1,7 @@
+@php
+    $secondaryColor = $page->secondary_color;
+@endphp
+
 <div class="max-w-screen-xl px-6 py-12 mx-auto mt-16">
     <div class="mb-16 text-center">
         <h2 class="text-3xl text-gray-800 lg:text-4xl">
@@ -18,7 +22,8 @@
                     A Natura busca alcançar suas metas de sustentabilidade até 2030 por meio da redução das emissões de carbono e do uso de plástico reciclado pós consumo incorporado nas embalagens.
                 </p>
                 <a href="#"
-                   class="inline-block w-full py-2 text-sm font-semibold text-white bg-green-500 rounded-md hover:bg-green-600">
+                   class="inline-block w-full py-2 text-sm font-semibold text-white rounded-md hover:opacity-90"
+                   style="background-color: {{ $secondaryColor }};">
                     Ver Mais
                 </a>
             </div>

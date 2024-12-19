@@ -1,4 +1,4 @@
-<nav class="sticky top-0 z-50" style="background-color: {{ $page->primary_color ?? '#0ea5e9' }};">
+<nav class="sticky top-0 z-50" style="background-color: {{ $page->primary_color}};">
     <div class="flex items-center justify-center h-16 px-2">
         <a href="#home" class="flex items-center">
             @if(!empty($page->logo))
@@ -16,7 +16,7 @@
         </div>
         <div class="hidden ml-72 md:flex">
             <a href="#login"
-               class="px-6 py-1 bg-white border-green-500 rounded shadow border-1 hover:bg-green-50" style="color: {{ $page->secondary_color ?? '#0ea5e9' }};">
+               class="px-6 py-1 bg-white border-green-500 rounded shadow border-1 hover:bg-green-50" style="color: {{ $page->secondary_color}};">
                 Login
             </a>
         </div>
@@ -34,6 +34,11 @@
                         {{ $item['label'] }}
                     </a>
                 @endforeach
+                <a href="#login"
+                   class="block px-3 py-2 mt-2 text-center text-white bg-green-500 rounded hover:bg-green-600"
+                   style="background-color: {{ $page->secondary_color}};">
+                    Login
+                </a>
             </div>
         </div>
     </div>
