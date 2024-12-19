@@ -337,10 +337,11 @@ class LandingPageResource extends Resource
                     ->limit(30),
 
                 TextColumn::make('slug')
-                    ->label('Slug')
+                    ->label('URL')
                     ->sortable()
                     ->searchable()
-                    ->limit(30),
+                    ->formatStateUsing(fn ($state) => "ch/$state")
+                    ->limit(50),
 
                 TextColumn::make('tags')
                     ->label('Tags')
@@ -358,6 +359,12 @@ class LandingPageResource extends Resource
                 Tables\Actions\ViewAction::make()->tooltip('Visualizar Landing Page'),
                 Tables\Actions\EditAction::make()->tooltip('Editar Landing Page'),
                 Tables\Actions\DeleteAction::make()->tooltip('Excluir Landing Page')->color('danger'),
+                Tables\Actions\Action::make('goToPage')
+                ->label('Acessar Página')
+                ->tooltip('Visualizar a Landing Page')
+                ->icon('heroicon-o-eye')
+                ->url(fn ($record) => url("ch/{$record->slug}"))
+                ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make()->color('danger'),
