@@ -17,7 +17,7 @@
                         $btnColor = $button['color'] ?? '#0ea5e9';
                     @endphp
                     <a href="{{ $btnLink }}"
-                       class="px-6 py-2 text-sm font-semibold text-center text-white rounded-md hover:opacity-90"
+                       class="px-10 py-3 text-sm font-semibold text-center text-white rounded-md hover:opacity-90"
                        style="background-color: {{ $btnColor }}; min-width: 120px;">
                         {{ $btnName }}
                     </a>
